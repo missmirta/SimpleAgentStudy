@@ -58,7 +58,8 @@ def run_tool(name, args):
 
 
 def agent(task):
-    client = anthropic.Anthropic()
+    workspace = os.environ.get("ANTHROPIC_WORKSPACE_ID")
+    client = anthropic.Anthropic(default_headers={"anthropic-workspace-id": workspace} if workspace else None)
     messages = [{"role": "user", "content": task}]
     for step in range(1, MAX_STEPS + 1):
         resp = client.messages.create(model=MODEL, max_tokens=4096, tools=TOOLS, messages=messages)
