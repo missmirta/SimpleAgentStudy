@@ -2,6 +2,8 @@
 
 Python, about 80 lines. Tools: `read_file`, `search`, `run_command`. A 10-step limit, a log entry for every call, and a confirmation prompt before every command.
 
+SimpleAgentStudy is a minimal AI agent in Python, about 80 lines in a single file (agent.py). It uses the Anthropic API and gives the model three tools: read_file, search and run_command. It has a few safety guardrails: a 10-step limit, a log entry for every tool call, and a confirmation prompt before any shell command runs. You run it with a task like python agent.py "Find all TODOs in this directory and summarize them". There is also a --dry-run mode that checks the tools without an API key.
+
 ## Running
 
 ```bash
